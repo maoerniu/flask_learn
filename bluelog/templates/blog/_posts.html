@@ -1,0 +1,19 @@
+{% if posts %}
+    {% for post in posts %}
+        <h3 class="text-primary"><a href="{{ url_for('.show_post', post_id=post.id) }}">{{ post.title }}</a></h3>
+        <p>
+            {{ post.body|striptags|truncate }}  <!-- striptags:渲染前把值中所有的HTML标签都删掉 truncate:默认截取255字符-->
+            <samll><a href="{{ url_for('.show_post', post_id=post.id) }}">Read More</a></samll>
+        </p>
+        <small>
+            Comments: <a href="{{ url_for('.show_post', post_id=post.id) }}#comments">{{ post.comments|length }}</a>
+        </small>
+    {% endfor %}
+{% else %}
+    <div class="tip">
+        <h5>No posts yet.</h5>
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('admin.new_post') }}">Write Now</a>
+        {% endif %}
+    </div>
+{% endif %}

@@ -1,0 +1,5 @@
+FLASK_APP='bluelog'
+MAIL_SERVER='smtp.exmail.qq.com'
+MAIL_USERNAME='maowenjun4167@tops001.com'
+MAIL_PASSWORD='Mao851106'
+BLUELOG_EMAIL='maowenjun4167@tops001.com'
